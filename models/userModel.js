@@ -27,22 +27,13 @@ var userSchema = new mongoose.Schema({
     },
     role:{
         type:String,
-        default: "user",
+        default: "user"
     },
-    cart:{
-        type:Array,
-        default:[],
+    isBlocked:{
+        type: Boolean,
+        default: false,
     },
-    address: [{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Address"
-    }],
-    wishlist: [{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Product"
-    }],
-    
-}, {versionKey: false}, {timestamps: true});
+}, {timestamps: true});
 
 // for password hash 
 userSchema.pre('save', async function (next){
